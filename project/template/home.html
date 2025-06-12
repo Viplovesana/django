@@ -9,9 +9,15 @@
     <title>Document</title>
 </head>
 <body>
+
+  {% comment %} {% if key1 %}
+    <h1>Hello from if block</h1>
+  
+  {% else %}
     <h1 class="first">Welcome to home page </h1>
-    <form action="{% url 'data' %}" method="POST" enctype="multipart/form-data">
+    <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
+        
         Name : <input type="text" name="x" value=""><br>
           Email : <input type="email" name="y" value=""><br>
             Contact : <input type="number" name="z" value=""><br>
@@ -20,5 +26,30 @@
 
                 <input type="submit" value="submit">
     </form>
+  {% endif %} {% endcomment %}
+
+  {% if key1 and key2 %}
+    <h1>Hello from if block</h1>
+    
+  {{key1}}
+
+  {% elif key1 %}
+  <h1>From only key1</h1>
+  {% elif key2 %}
+  <h1>From only key2</h1> 
+  {% else %}
+    <h1 class="first">Welcome to home page </h1>
+    <form action="{% url 'home' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        
+        Name : <input type="text" name="x" value=""><br>
+          Email : <input type="email" name="y" value=""><br>
+            Contact : <input type="number" name="z" value=""><br>
+              Image : <input type="file" name="f" value=""><br>
+                Document : <input type="file" name="d" value=""><br>
+
+                <input type="submit" value="submit">
+    </form>
+  {% endif %}
 </body>
 </html>
