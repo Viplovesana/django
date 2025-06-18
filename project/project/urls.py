@@ -19,10 +19,10 @@ from django.urls import path
 from myapp import views
 from django.conf import settings
 from django.conf.urls.static import static
-
+from myapp import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    # path('data/', views.data, name='data')
+    # path('', views., name='data')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

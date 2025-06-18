@@ -4,6 +4,7 @@ from django.db import models
 class Student(models.Model):
     name = models.CharField(max_length=30)
     email=models.EmailField()
-    contact=models.IntegerField()
+    contact=models.CharField()
     image=models.ImageField(upload_to='image/')
-    document=models.FileField(upload_to='file/')
+    document=models.FileField(upload_to='file/') 
+ 
